@@ -13,5 +13,7 @@ public class University_Management_System {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        Login_Page login_Page = new Login_Page();
+        login_Page.setVisible(true);
     }
 }
