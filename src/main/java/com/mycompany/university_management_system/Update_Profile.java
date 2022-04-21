@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.university_management_system;
+import javax.swing.*;
+import java.awt.event.*;
 
 /**
  *
@@ -68,6 +70,14 @@ public class Update_Profile extends javax.swing.JFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setEditable(false);
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
             }
         });
 
@@ -157,15 +167,37 @@ public class Update_Profile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         student StudentData=new student(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextArea1.getText(),String.valueOf(jPasswordField1.getPassword()));
         storeStudentData obj=new storeStudentData(StudentData);
         storeStudentData.connectDatabase(StudentData);
     }//GEN-LAST:event_jButton1ActionPerformed
+=======
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+        // Phone Number Validation
+        String phone = jTextField1.getText();
+        System.out.println(phone);
+        if (phone.length() != 10)
+        {
+            JOptionPane.showMessageDialog(null, "Phone Number should have 10 digits", "Invalid Phone Number", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (!phone.matches("[0-9]+"))
+        {
+            JOptionPane.showMessageDialog(null, "Phone Number should have only numbers", "Invalid Phone Number", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            // SQL Code
+        }
+    }//GEN-LAST:event_jTextField3ActionPerformed
+>>>>>>> 9e5c3d33e119bb13eef7f20ed1b5d7e8fb65e289
 
     /**
      * @param args the command line arguments
@@ -218,4 +250,27 @@ public class Update_Profile extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    public void jButton1Properties() {
+        jButton1.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Phone Number Validation
+                String phone = jTextField1.getText();
+                System.out.println(phone);
+                if (phone.length() != 10)
+                {
+                    JOptionPane.showMessageDialog(null, "Phone Number should have 10 digits", "Invalid Phone Number", JOptionPane.ERROR_MESSAGE);
+                }
+                else if (!phone.matches("[0-9]+"))
+                {
+                    JOptionPane.showMessageDialog(null, "Phone Number should have only numbers", "Invalid Phone Number", JOptionPane.ERROR_MESSAGE);
+                }
+                else
+                {
+                    // SQL Code
+                }
+            }
+        });
+    }
 }
