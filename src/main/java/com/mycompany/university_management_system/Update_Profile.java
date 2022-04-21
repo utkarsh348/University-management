@@ -171,14 +171,12 @@ public class Update_Profile extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         student StudentData=new student(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextArea1.getText(),String.valueOf(jPasswordField1.getPassword()));
         storeStudentData obj=new storeStudentData(StudentData);
         storeStudentData.connectDatabase(StudentData);
     }//GEN-LAST:event_jButton1ActionPerformed
-=======
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
         // Phone Number Validation
@@ -197,7 +195,6 @@ public class Update_Profile extends javax.swing.JFrame {
             // SQL Code
         }
     }//GEN-LAST:event_jTextField3ActionPerformed
->>>>>>> 9e5c3d33e119bb13eef7f20ed1b5d7e8fb65e289
 
     /**
      * @param args the command line arguments
