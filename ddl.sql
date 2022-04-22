@@ -4,7 +4,7 @@ CREATE TABLE STUDENT(
     phone_num varchar(10), 
     address varchar, 
     feeStat boolean,
-    admissionStat,
+    admissionStat varchar,
     batch varchar,
     PRIMARY KEY(student_id)
 );
