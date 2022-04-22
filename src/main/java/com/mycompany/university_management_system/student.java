@@ -14,6 +14,9 @@ public class student {
     String phoneNumber;
     String address;
     String newPassword=null;
+    Boolean paidFee;
+    Boolean admissionStat;
+    String batch;
     student(String studentName,String studentId,String phoneNumber,String address,String newPassword){
         this.studentName=studentName;
         this.studentId=studentId;
