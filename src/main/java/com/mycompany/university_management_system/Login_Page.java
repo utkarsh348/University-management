@@ -137,8 +137,9 @@ public class Login_Page extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Update_Profile updateProf=new Update_Profile();
-        updateProf.setVisible(true);
+        validateUser validUser=new validateUser();
+        validUser.validate(jTextField1.getText(),new String(jPasswordField1.getPassword()));
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
