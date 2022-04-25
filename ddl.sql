@@ -1,6 +1,8 @@
 DROP TABLE STUDENT;
 DROP TABLE login;
 DROP TABLE courses;
+DROP TABLE student_table;
+DROP TABLE professor;
 CREATE TABLE STUDENT(
     student_id varchar(10) NOT NULL, 
     student_name varchar, 
@@ -36,7 +38,7 @@ Create table professor(
     professor_name varchar,
     phone_num varchar(10),
     department varchar,
-    PRIMARY KEY(professor_id)
+    PRIMARY KEY(professor_id),
     course_1 varchar,
     course_2 varchar,
     course_3 varchar,
