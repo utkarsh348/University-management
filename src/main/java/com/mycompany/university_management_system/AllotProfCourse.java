@@ -16,7 +16,7 @@ public class AllotProfCourse {
             stmt.close();
             for(int i = 1;i<=3;i++){
                 if(rs.getString("course_id"+i)==null){
-                    sql = "UPDATE PROFESSOR set course_id"+i+" = "+courseId+" where prof_id = "+profId;
+                    sql = "UPDATE PROFESSOR set course_"+i+" = "+courseId+" where prof_id = "+profId;
                     System.out.println(sql);
                     stmt = c.createStatement();
                     stmt.executeUpdate(sql);
