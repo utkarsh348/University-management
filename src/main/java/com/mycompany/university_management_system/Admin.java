@@ -51,11 +51,12 @@ public class Admin {
                     System.out.println(sql);
                     stmt.executeQuery(sql);
                     stmt.close();
+                    return "granted and entered";
                 } catch (Exception e) {
                     System.err.println( e.getClass().getName()+": "+ e.getMessage() );
                     System.exit(0);
                 }
-                return "granted and entered";
+                
             }else if (checkAdm(studentId, c)=="admitted"){
                 return "Admission already granted";
             }
@@ -65,7 +66,7 @@ public class Admin {
         }else{
             return "Fee not paid";
         }
-
+        return null;
     }
     
     //get student details
