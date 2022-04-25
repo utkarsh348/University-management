@@ -173,15 +173,15 @@ public class AdminFront extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             Connection c=DBsingleton.getConnection();
-            jLabel3.setText(Admin.sname(c, jTextField1.getText()));  
-            Boolean fee = Admin.checkFee(jTextField1.getText(), c);
+            jLabel3.setText(admin.sname(c, jTextField1.getText()));  
+            Boolean fee = admin.checkFee(jTextField1.getText(), c);
             if(fee){
                 jLabel5.setText("Paid");
             }
             else{
                 jLabel5.setText("Not paid");
             }
-            jLabel7.setText(Admin.checkAdm(jTextField1.getText(),c));
+            jLabel7.setText(admin.checkAdm(jTextField1.getText(),c));
         }
         catch(Exception e){
             System.out.println(e);
@@ -194,7 +194,7 @@ public class AdminFront extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             Connection c=DBsingleton.getConnection();
-            String adm = Admin.admitIfFeePaid(jTextField1.getText(),c);
+            String adm = admin.admitIfFeePaid(jTextField1.getText(),c);
             if(adm == "granted and entered"){
                 jLabel8.setText("Student admitted");
             }
