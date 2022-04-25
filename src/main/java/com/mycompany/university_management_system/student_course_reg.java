@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.university_management_system;
-
+import java.sql.Connection;
 /**
  *
  * @author suhas
@@ -225,11 +225,24 @@ public class student_course_reg extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
-
+studentRegistration stuReg = new studentRegistration();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           // TODO add your handling code here:
+        // Get the data from the fields
         String id = jTextField1.getText();
+        String name = jTextField2.getText();
+        String course_1 = jTextField3.getText().isEmpty() ? null: jTextField3.getText();
+        String course_2 = jTextField4.getText().isEmpty() ? null: jTextField4.getText();
+        String course_3 = jTextField5.getText().isEmpty() ? null: jTextField5.getText();
+        String course_4 = jTextField6.getText().isEmpty() ? null: jTextField6.getText();
+        String course_5 = jTextField7.getText().isEmpty() ? null: jTextField7.getText();
         
+        try {
+            Connection c=DBsingleton.getConnection();
+            stuReg.addRegistration(id, name, course_1, course_2, course_3, course_4, course_5, c);
+        } catch (Exception e) {
+            System.out.println(e);
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
