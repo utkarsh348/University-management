@@ -40,7 +40,7 @@ public class Admin {
     }
     
     //call fee paid and check adm to grant admission
-    public static void admitIfFeePaid(student student,Connection c) {
+    public static String admitIfFeePaid(student student,Connection c) {
         Statement stmt = null;
         if(checkFee(student, c)){
             if(checkAdm(student, c)=="granted"){
@@ -54,7 +54,15 @@ public class Admin {
                     System.err.println( e.getClass().getName()+": "+ e.getMessage() );
                     System.exit(0);
                 }
+                return "granted and entered";
+            }else if (checkAdm(student, c)=="admitted"){
+                return "Admission already granted";
             }
+            else{
+                return "Admission not granted";
+            }
+        }else{
+            return "Fee not paid";
         }
 
     }
