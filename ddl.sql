@@ -13,4 +13,4 @@ CREATE TABLE STUDENT(
 );
 create table login(username varchar not null unique,password varchar not null,primary key(username));
 INSERT INTO TABLE login('admin','admin','admin');
-CREATE TABLE courses(Course_name varchar not null,semester varchar,description varchar,type varchar);
+CREATE TABLE courses(Course_name varchar not null unique,semester varchar,description varchar,type varchar);
