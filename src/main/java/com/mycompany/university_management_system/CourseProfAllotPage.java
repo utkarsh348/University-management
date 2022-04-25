@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.university_management_system;
-
+import java.sql.*;
 /**
  *
  * @author utkar
@@ -43,11 +43,16 @@ public class CourseProfAllotPage extends javax.swing.JFrame {
 
         jLabel3.setText("Add course:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
         jLabel4.setText("Semester:");
 
         jButton1.setText("Allot");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,6 +103,21 @@ public class CourseProfAllotPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    AllotProfCourse allot = new AllotProfCourse();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            String profid = jTextField1.getText();
+        String courseid = jTextField2.getText();
+        String sem = jComboBox1.getSelectedItem().toString();
+        Connection c = DBsingleton.getConnection();
+        allot.addCourse(profid, courseid, c, sem);
+        }
+        catch(Exception e){
+            System.out.println(e);
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

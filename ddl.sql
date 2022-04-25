@@ -39,5 +39,8 @@ Create table professor(
     PRIMARY KEY(professor_id)
     course_1 varchar,
     course_2 varchar,
-    course_3 varchar
+    course_3 varchar,
+    semc1 varchar,
+    semc2 varchar,
+    semc3 varchar
 );

@@ -3,7 +3,7 @@ package com.mycompany.university_management_system;
 import java.sql.*;
 public class Admin {
     public Admin(){}
-    public static boolean checkFee(String studentId, Connection c){
+    public boolean checkFee(String studentId, Connection c){
         //select query to get fee status
         Statement stmt = null;
         try {
@@ -22,7 +22,7 @@ public class Admin {
         return false;
     }
 
-    public static String checkAdm(String studentId,Connection c){
+    public String checkAdm(String studentId,Connection c){
         //check query if admission is granted or not
         Statement stmt = null;
         try {
@@ -41,7 +41,7 @@ public class Admin {
     }
     
     //call fee paid and check adm to grant admission
-    public static String admitIfFeePaid(String studentId,Connection c) {
+    public String admitIfFeePaid(String studentId,Connection c) {
         Statement stmt = null;
         if(checkFee(studentId, c)){
             if(checkAdm(studentId, c)=="granted"){
@@ -70,7 +70,7 @@ public class Admin {
     }
     
     //get student details
-    public static String sname(Connection c, String studentId) {
+    public String sname(Connection c, String studentId) {
 
         Statement stmt = null;
         try {
