@@ -14,10 +14,7 @@ public class University_Management_System {
     
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        
-//        Update_Profile updateProf=new Update_Profile();
-//        updateProf.setVisible(true);
+        System.out.println("Program Started :)");
         Login_Page login_page = new Login_Page();
         login_page.setVisible(true);
     }

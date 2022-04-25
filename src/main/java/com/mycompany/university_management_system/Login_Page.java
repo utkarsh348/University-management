@@ -54,6 +54,7 @@ public class Login_Page extends javax.swing.JFrame {
         jLabel3.setText("Username:");
 
         buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Student");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +63,7 @@ public class Login_Page extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Faculty");
+        jRadioButton2.setText("Admin");
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +139,12 @@ public class Login_Page extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         validateUser validUser=new validateUser();
-        validUser.validate(jTextField1.getText(),new String(jPasswordField1.getPassword()));
+        if(jRadioButton1.isSelected()){
+            validUser.validate(jTextField1.getText(),new String(jPasswordField1.getPassword()),"student");   
+        }
+        else{
+            validUser.validate(jTextField1.getText(),new String(jPasswordField1.getPassword()),"admin");
+        }
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

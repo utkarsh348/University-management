@@ -11,7 +11,7 @@ import javax.swing.*;
  * @author mkvar
  */
 public class validateUser {
-    public static void validate(String username,String password) {
+    public static void validate(String username,String password,String type) {
         Connection c=null;
         Statement stmt=null;
         try {
@@ -26,9 +26,10 @@ public class validateUser {
          ResultSet rs=stmt.executeQuery(sql);
          if(rs.next()){
              if(username.contentEquals(rs.getString("username")) && password.contentEquals(rs.getString("password"))){
-                 if(rs.getString("role").contentEquals("admin")){
-                             courseEditPage courseEdit=new courseEditPage();
-                             courseEdit.setVisible(true);
+                 String role=rs.getString("role");
+                 if(role.contentEquals("admin") && type.contentEquals("admin")){
+                             adminConsole admConsole=new adminConsole();
+                             admConsole.setVisible(true);
                  }
                  else{
                      //do nothing for now
