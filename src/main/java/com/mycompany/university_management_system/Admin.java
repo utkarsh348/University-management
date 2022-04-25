@@ -49,7 +49,7 @@ public class Admin {
                     stmt = c.createStatement();
                     String sql = "UPDATE STUDENT set admissionStat = 'admitted' where student_id = "+studentId;
                     System.out.println(sql);
-                    stmt.executeQuery(sql);
+                    stmt.executeUpdate(sql);
                     stmt.close();
                     return "granted and entered";
                 } catch (Exception e) {
