@@ -40,7 +40,7 @@ public class validateUser {
                  System.exit(0);
              }
          }
-         else`{
+         else{
              System.out.println("Wrong User/Password");
              JOptionPane.showMessageDialog(new JFrame(),"Wrong Username/Password!","Error",JOptionPane.ERROR_MESSAGE);
              System.exit(0);
