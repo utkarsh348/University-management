@@ -27,8 +27,8 @@ public class validateUser {
          if(rs.next()){
              if(username.contentEquals(rs.getString("username")) && password.contentEquals(rs.getString("password"))){
                  if(rs.getString("role").contentEquals("admin")){
-                             Update_Profile updateProf=new Update_Profile();
-                             updateProf.setVisible(true);
+                             courseEditPage courseEdit=new courseEditPage();
+                             courseEdit.setVisible(true);
                  }
                  else{
                      //do nothing for now
