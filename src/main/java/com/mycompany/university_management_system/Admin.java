@@ -2,13 +2,13 @@ package com.mycompany.university_management_system;
 
 import java.sql.*;
 public class Admin {
-    
-    public static boolean checkFee(student student, Connection c){
+    public Admin(){}
+    public static boolean checkFee(String studentId, Connection c){
         //select query to get fee status
         Statement stmt = null;
         try {
             stmt = c.createStatement();
-            String sql = "SELECT feeStat from STUDENT where student_id = "+student.studentId;
+            String sql = "SELECT feeStat from STUDENT where student_id = "+studentId;
             System.out.println(sql);
             ResultSet rs=stmt.executeQuery(sql);
             stmt.close();
@@ -22,12 +22,12 @@ public class Admin {
         return false;
     }
 
-    public static String checkAdm(student student, Connection c){
+    public static String checkAdm(String studentId,Connection c){
         //check query if admission is granted or not
         Statement stmt = null;
         try {
             stmt = c.createStatement();
-            String sql = "SELECT admissionStat from STUDENT where student_id = "+student.studentId;
+            String sql = "SELECT admissionStat from STUDENT where student_id = "+studentId;
             System.out.println(sql);
             ResultSet rs=stmt.executeQuery(sql);
             stmt.close();
@@ -41,22 +41,22 @@ public class Admin {
     }
     
     //call fee paid and check adm to grant admission
-    public static String admitIfFeePaid(student student,Connection c) {
+    public static String admitIfFeePaid(String studentId,Connection c) {
         Statement stmt = null;
-        if(checkFee(student, c)){
-            if(checkAdm(student, c)=="granted"){
+        if(checkFee(studentId, c)){
+            if(checkAdm(studentId, c)=="granted"){
                 try {
                     stmt = c.createStatement();
-                    String sql = "SELECT admissionStat from STUDENT where student_id = "+student.studentId;
+                    String sql = "UPDATE STUDENT set admissionStat = 'admitted' where student_id = "+studentId;
                     System.out.println(sql);
-                    ResultSet rs=stmt.executeQuery(sql);
+                    stmt.executeQuery(sql);
                     stmt.close();
                 } catch (Exception e) {
                     System.err.println( e.getClass().getName()+": "+ e.getMessage() );
                     System.exit(0);
                 }
                 return "granted and entered";
-            }else if (checkAdm(student, c)=="admitted"){
+            }else if (checkAdm(studentId, c)=="admitted"){
                 return "Admission already granted";
             }
             else{
@@ -69,9 +69,21 @@ public class Admin {
     }
     
     //get student details
-    public static String sname() {
+    public static String sname(Connection c, String studentId) {
 
-        
+        Statement stmt = null;
+        try {
+            stmt = c.createStatement();
+            String sql = "SELECT student_name from STUDENT where student_id = "+studentId;
+            System.out.println(sql);
+            ResultSet rs=stmt.executeQuery(sql);
+            String name = rs.getString("student_name");
+            stmt.close();
+            return name;
+        } catch (Exception e) {
+            System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+            System.exit(0);
+        }
         return null;
         
     }
