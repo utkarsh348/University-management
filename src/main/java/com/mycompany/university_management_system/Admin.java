@@ -12,6 +12,7 @@ public class Admin {
             System.out.println(sql);
             ResultSet rs=stmt.executeQuery(sql);
             stmt.close();
+            String sname = rs.getString("student_name");
             boolean feeStat = rs.getBoolean("feeStat");
             return feeStat;
         } catch (Exception e) {
@@ -67,6 +68,12 @@ public class Admin {
 
     }
     
+    //get student details
+    public static String sname() {
 
+        
+        return null;
+        
+    }
 
 }
