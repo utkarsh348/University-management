@@ -13,8 +13,9 @@ CREATE TABLE STUDENT(
     batch varchar,
     PRIMARY KEY(student_id)
 );
-create table login(username varchar not null unique,password varchar not null,primary key(username));
-INSERT INTO TABLE login('admin','admin','admin');
+create table login(username varchar not null unique,password varchar not null,role varchar not null,primary key(username));
+INSERT INTO login values('admin','admin','admin');
+INSERT INTO login values('student','student','student');
 CREATE TABLE courses(
     Course_name varchar not null unique,
     semester varchar,

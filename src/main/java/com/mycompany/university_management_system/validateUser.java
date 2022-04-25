@@ -32,7 +32,10 @@ public class validateUser {
                              admConsole.setVisible(true);
                  }
                  else{
-                     //do nothing for now
+                    if(role.contentEquals("student") && type.contentEquals("student")){
+                                studentConsole sdtConsole=new studentConsole();
+                                sdtConsole.setVisible(true);
+                    }
                  }
              }
              else{
