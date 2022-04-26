@@ -3,23 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.university_management_system;
-import java.sql.*;
-import javax.swing.JOptionPane;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
 /**
  *
  * @author mkvar
  */
-public class student implements userInterface {
-    String studentName;
-    String studentId;
+public class faculty implements userInterface{
+    String facultyName;
+    String facultyId;
     String phoneNumber;
     String address;
-    Boolean paidFee;
-    Boolean admissionStat;
-    String batch;
+    String core;
     @Override
     public String[] displayDetails(){
-        String[] val={this.studentName,this.studentId};
+        String[] val={this.facultyName,this.facultyId,this.core};
         return val;
     }
     @Override
@@ -32,10 +32,10 @@ public class student implements userInterface {
     }
     @Override
     public void updateUserData(Connection c){
-        Statement stmt=null;
+                Statement stmt=null;
         try{
             stmt = c.createStatement();
-            String sql = "UPDATE student set student_name='"+studentName+"',phone_num='"+phoneNumber+"',address='"+address+"' where student_id='"+studentId+"';";
+            String sql = "UPDATE faculty set faculty_name='"+facultyName+"',core='"+core+"',phone_num='"+phoneNumber+"',address='"+address+"' where faculty_id='"+facultyId+"';";
             System.out.println(sql);
             stmt.executeUpdate(sql);
             stmt.close();
@@ -45,10 +45,11 @@ public class student implements userInterface {
             System.exit(0);
         }
     }
-    student(String studentName,String studentId,String phoneNumber,String address){
-        this.studentName=studentName;
-        this.studentId=studentId;
+    faculty(String facultyName,String facultyId,String phoneNumber,String address,String core){
+        this.facultyName=facultyName;
+        this.facultyId=facultyId;
         this.phoneNumber=phoneNumber;
         this.address=address;
+        this.core=core;
     }
 }

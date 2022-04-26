@@ -3,6 +3,7 @@ DROP TABLE login;
 DROP TABLE courses;
 DROP TABLE student_table;
 DROP TABLE professor;
+DROP table faculty;
 CREATE TABLE STUDENT(
     student_id varchar(10) NOT NULL, 
     student_name varchar, 
@@ -16,6 +17,7 @@ CREATE TABLE STUDENT(
 create table login(username varchar not null unique,password varchar not null,role varchar not null,primary key(username));
 INSERT INTO login values('admin','admin','admin');
 INSERT INTO login values('student','student','student');
+INSERT into student values('1','Varun','9113240914','17115-Bella Vista','true','admitted','2019');
 CREATE TABLE courses(
     Course_name varchar not null unique,
     semester varchar,
@@ -47,3 +49,12 @@ Create table professor(
     semc2 varchar,
     semc3 varchar
 );
+CREATE TABLE faculty(
+    faculty_id varchar(10) NOT NULL unique,
+    faculty_name varchar,
+    phone_num varchar(10),
+    core varchar,
+    address varchar,
+    PRIMARY KEY(faculty_id)
+);
+INSERT into faculty values('1','Rahul','9113240914','Computer Science','B415-Prestige Song of South');

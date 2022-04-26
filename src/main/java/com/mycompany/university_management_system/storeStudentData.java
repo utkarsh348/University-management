@@ -34,6 +34,4 @@ public class storeStudentData {
     storeStudentData(student studentData){
         this.studentData=studentData;
     }
-    public static void main(String args[]){
-    }
 }

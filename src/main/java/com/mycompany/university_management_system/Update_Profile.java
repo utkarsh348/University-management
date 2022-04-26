@@ -5,6 +5,8 @@
 package com.mycompany.university_management_system;
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.Statement;
 
 /**
  *
@@ -137,7 +139,7 @@ public class Update_Profile extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,9 +185,18 @@ public class Update_Profile extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        student StudentData=new student(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextArea1.getText(),String.valueOf(jPasswordField1.getPassword()));
-        storeStudentData obj=new storeStudentData(StudentData);
-        storeStudentData.connectDatabase(StudentData);
+        String pass=new String(jPasswordField1.getPassword());
+        if(pass.length()==0){
+            student s=new student(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextArea1.getText());
+            try{
+                Connection c=DBsingleton.getConnection();
+                s.updateUserData(c);
+            }
+            catch(Exception e){
+                System.out.println(e);
+                System.exit(0);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
