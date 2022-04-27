@@ -8,12 +8,15 @@ public class Admin {
         Statement stmt = null;
         try {
             stmt = c.createStatement();
-            String sql = "SELECT feeStat from STUDENT where student_id = "+studentId;
+            String sql = "SELECT feeStat,student_name from STUDENT where student_id = '"+studentId+"';";
             System.out.println(sql);
             ResultSet rs=stmt.executeQuery(sql);
+            boolean feeStat=false;
+            while(rs.next()){
+                         feeStat = rs.getBoolean("feeStat");
+                         String sname = rs.getString("student_name");
+            }
             stmt.close();
-            String sname = rs.getString("student_name");
-            boolean feeStat = rs.getBoolean("feeStat");
             return feeStat;
         } catch (Exception e) {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
@@ -27,11 +30,14 @@ public class Admin {
         Statement stmt = null;
         try {
             stmt = c.createStatement();
-            String sql = "SELECT admissionStat from STUDENT where student_id = "+studentId;
+            String sql = "SELECT admissionStat from STUDENT where student_id = '"+studentId+"';";
             System.out.println(sql);
             ResultSet rs=stmt.executeQuery(sql);
+            String admissionStat="";
+            while(rs.next()){
+                         admissionStat = rs.getString("admissionStat");   
+            }
             stmt.close();
-            String admissionStat = rs.getString("admissionStat");
             return admissionStat;
         } catch (Exception e) {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
@@ -47,7 +53,7 @@ public class Admin {
             if(checkAdm(studentId, c)=="granted"){
                 try {
                     stmt = c.createStatement();
-                    String sql = "UPDATE STUDENT set admissionStat = 'admitted' where student_id = "+studentId;
+                    String sql = "UPDATE STUDENT set admissionStat = 'admitted' where student_id = '"+studentId+"';";
                     System.out.println(sql);
                     stmt.executeUpdate(sql);
                     stmt.close();
@@ -75,10 +81,13 @@ public class Admin {
         Statement stmt = null;
         try {
             stmt = c.createStatement();
-            String sql = "SELECT student_name from STUDENT where student_id = "+studentId;
+            String sql = "SELECT student_name from STUDENT where student_id = '"+studentId+"';";
             System.out.println(sql);
             ResultSet rs=stmt.executeQuery(sql);
-            String name = rs.getString("student_name");
+            String name="";
+            while(rs.next()){
+              name=rs.getString("student_name");   
+            }
             stmt.close();
             return name;
         } catch (Exception e) {

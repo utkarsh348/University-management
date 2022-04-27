@@ -19,7 +19,7 @@ public class studentRegistration {
         Statement stmt = null;
         try {
             stmt = c.createStatement();
-            String sql = "INSERT INTO student_table values('" +id+"','"+name+"','"+course_1+"','"+course_2+"','"+course_3+"','"+course_4+"','"+course_5+"');'";
+            String sql = "INSERT INTO student_table values('" +id+"','"+name+"','"+course_1+"','"+course_2+"','"+course_3+"','"+course_4+"','"+course_5+"');";
             System.out.println(sql);
             stmt.executeUpdate(sql);
             stmt.close();
