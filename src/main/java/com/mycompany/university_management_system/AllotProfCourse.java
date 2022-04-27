@@ -10,20 +10,21 @@ public class AllotProfCourse {
         Statement stmt = null;
         try {
             stmt = c.createStatement();
-            String sql = "SELECT * from PROFESSOR where prof_id = "+profId;
+            String sql = "SELECT * from PROFESSOR where professor_id = '"+profId+"';";
             System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);
-            stmt.close();
-            for(int i = 1;i<=3;i++){
-                if(rs.getString("course_id"+i)==null){
-                    sql = "UPDATE PROFESSOR set course_"+i+" = "+courseId+",set semc"+i+"="+sem+" where prof_id = "+profId;
+            int i=1;
+            while(rs.next()){
+                if(rs.getString("course_"+i)==null){
+                    sql = "UPDATE PROFESSOR set course_"+i+" = '"+courseId+"',set semc"+i+"='"+sem+"' where professor_id = '"+profId+"';";
                     System.out.println(sql);
                     stmt = c.createStatement();
                     stmt.executeUpdate(sql);
-                    stmt.close();
                     break;
                 }
+                i++;
             }
+                      stmt.close();
         } catch (Exception e) {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             System.exit(0);

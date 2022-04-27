@@ -58,3 +58,4 @@ CREATE TABLE faculty(
     PRIMARY KEY(faculty_id)
 );
 INSERT into faculty values('1','Rahul','9113240914','Computer Science','B415-Prestige Song of South');
+INSERT into professor values('1','Rahul','9113240914','Computer Science','Maths','DBMS','DAA','2','3','4');
